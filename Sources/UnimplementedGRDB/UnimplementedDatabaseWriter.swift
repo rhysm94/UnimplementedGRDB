@@ -9,13 +9,19 @@ import IssueReporting
 @preconcurrency import GRDB
 
 // A type that provides write access to a database
-public protocol DatabaseWriterProvider {
+public protocol DatabaseWriterProvider: DatabaseReaderProvider {
   /// Provides read/write access to the database.
   @MainActor var writer: any DatabaseWriter { get throws }
 }
 
 public struct UnimplementedDatabaseWriterProvider: DatabaseWriterProvider {
   public init() {}
+
+  public var reader: any DatabaseReader {
+    get throws {
+      throw UnimplementedFailure(description: "UnimplementedDatabaseWriterProvider.reader")
+    }
+  }
 
   public var writer: any DatabaseWriter {
     get throws {

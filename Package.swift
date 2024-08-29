@@ -15,7 +15,7 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/groue/GRDB.swift", from: "6.29.0"),
-    .package(url: "https://github.com/pointfreeco/swift-issue-reporting", from: "1.2.0"),
+    .package(url: "https://github.com/pointfreeco/xctest-dynamic-overlay", from: "1.2.0"),
   ],
   targets: [
     // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +24,7 @@ let package = Package(
       name: "UnimplementedGRDB",
       dependencies: [
         .product(name: "GRDB", package: "GRDB.swift"),
-        .product(name: "IssueReporting", package: "swift-issue-reporting")
+        .product(name: "IssueReporting", package: "xctest-dynamic-overlay")
       ]
     ),
     .testTarget(

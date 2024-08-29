@@ -1,5 +1,5 @@
 {
-  "originHash" : "a42a993041cf068b3d5d90b1ab792b6e59116070b1feffe90c903f74f83603e1",
+  "originHash" : "dc2255c58c462cc46f6d9b8f6824894949efcb6388ef44d589d55b29d0f05818",
   "pins" : [
     {
       "identity" : "grdb.swift",
@@ -11,9 +11,9 @@
       }
     },
     {
-      "identity" : "swift-issue-reporting",
+      "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/swift-issue-reporting",
+      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
       "state" : {
         "revision" : "96beb108a57f24c8476ae1f309239270772b2940",
         "version" : "1.2.5"

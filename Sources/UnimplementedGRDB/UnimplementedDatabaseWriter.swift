@@ -52,8 +52,6 @@ public final class UnimplementedDatabaseWriter: DatabaseWriter {
     IssueReporting.unimplemented("UnimplementedDatabaseWriter._add", placeholder: AnyDatabaseCancellable { })
   }
 
-
-
   public func barrierWriteWithoutTransaction<T>(_ updates: (GRDB.Database) throws -> T) throws -> T {
     throw UnimplementedFailure(description: "UnimplementedDatabaseWriter.barrierWriteWithoutTransaction")
   }
@@ -66,20 +64,21 @@ public final class UnimplementedDatabaseWriter: DatabaseWriter {
     IssueReporting.unimplemented("UnimplementedDatabaseWriter.asyncWriteWithoutTransaction")
   }
 
+  public func spawnConcurrentRead(_ value: @escaping (Result<Database, any Error>) -> Void) {
+    value(.failure(UnimplementedFailure(description: "UnimplementedDatabaseWriter.spawnConcurrentRead")))
+  }
+
+  // MARK: - Currently Unimplementable methods
   public func writeWithoutTransaction<T>(_ updates: (Database) throws -> T) rethrows -> T {
-    fatalError()
+    fatalError("Impossible to implement writeWithoutTransaction on UnimplementedDatabaseWriter")
   }
 
   public func unsafeReentrantWrite<T>(_ updates: (Database) throws -> T) rethrows -> T {
-    fatalError()
+    fatalError("Impossible to implement unsafeReentrantWrite on UnimplementedDatabaseWriter")
   }
 
   public func concurrentRead<T>(_ value: @escaping (Database) throws -> T) -> DatabaseFuture<T> {
-    fatalError()
-  }
-
-  public func spawnConcurrentRead(_ value: @escaping (Result<Database, any Error>) -> Void) {
-    value(.failure(UnimplementedFailure(description: "UnimplementedDatabaseWriter.spawnConcurrentRead")))
+    fatalError("Impossible to implement concurrentRead on UnimplementedDatabaseWriter")
   }
 }
 

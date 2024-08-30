@@ -19,6 +19,7 @@ public struct UnimplementedDatabaseReaderProvider: DatabaseReaderProvider {
 
   public var reader: any DatabaseReader {
     get throws {
+      reportIssue("An unimplemented DatabaseReaderProvider was accessed.")
       throw UnimplementedFailure(description: "UnimplementedDatabaseReaderProvider.reader")
     }
   }

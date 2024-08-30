@@ -19,12 +19,14 @@ public struct UnimplementedDatabaseWriterProvider: DatabaseWriterProvider {
 
   public var reader: any DatabaseReader {
     get throws {
+      reportIssue("An unimplemented DatabaseWriterProvider was accessed.")
       throw UnimplementedFailure(description: "UnimplementedDatabaseWriterProvider.reader")
     }
   }
 
   public var writer: any DatabaseWriter {
     get throws {
+      reportIssue("An unimplemented DatabaseWriterProvider was accessed.")
       throw UnimplementedFailure(description: "UnimplementedDatabaseWriterProvider.writer")
     }
   }

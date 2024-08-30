@@ -36,7 +36,7 @@ public extension DatabaseWriterProvider where Self: DatabaseWriter {
   @MainActor var writer: any DatabaseWriter { self }
 }
 
-extension AnyDatabaseWriter: DatabaseReaderProvider {}
+extension AnyDatabaseWriter: DatabaseWriterProvider {}
 extension DatabaseQueue: DatabaseWriterProvider {}
 extension DatabasePool: DatabaseWriterProvider {}
 
